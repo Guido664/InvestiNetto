@@ -12,6 +12,10 @@ export const InputSection: React.FC<InputSectionProps> = ({ params, setParams })
     setParams(prev => ({ ...prev, taxRate: preset }));
   };
 
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    e.target.select();
+  };
+
   const isCustomTax = ![26, 12.5, 0].includes(params.taxRate);
 
   return (
@@ -36,6 +40,7 @@ export const InputSection: React.FC<InputSectionProps> = ({ params, setParams })
             step="100"
             value={params.capital}
             onChange={(e) => setParams({ ...params, capital: parseFloat(e.target.value) || 0 })}
+            onFocus={handleFocus}
             className="block w-full pl-8 pr-12 py-3 border-slate-200 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg border transition-colors"
           />
         </div>
@@ -55,6 +60,7 @@ export const InputSection: React.FC<InputSectionProps> = ({ params, setParams })
               step="0.1"
               value={params.rate}
               onChange={(e) => setParams({ ...params, rate: parseFloat(e.target.value) || 0 })}
+              onFocus={handleFocus}
               className="block w-full px-4 py-3 border-slate-200 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg border"
             />
              <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
@@ -72,6 +78,7 @@ export const InputSection: React.FC<InputSectionProps> = ({ params, setParams })
               min="1"
               value={params.duration}
               onChange={(e) => setParams({ ...params, duration: parseFloat(e.target.value) || 1 })}
+              onFocus={handleFocus}
               className="flex-1 block w-full px-4 py-3 rounded-l-lg border-slate-200 border focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg min-w-0"
             />
             <select
@@ -132,6 +139,7 @@ export const InputSection: React.FC<InputSectionProps> = ({ params, setParams })
                 step="0.1"
                 value={params.taxRate}
                 onChange={(e) => setParams({...params, taxRate: parseFloat(e.target.value) || 0})}
+                onFocus={handleFocus}
                 className="block w-24 px-3 py-1.5 border-slate-200 rounded-md text-sm border focus:ring-indigo-500 focus:border-indigo-500"
             />
             <span className="ml-2 text-slate-500 text-sm">%</span>
