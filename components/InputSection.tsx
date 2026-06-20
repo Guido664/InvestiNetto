@@ -51,7 +51,7 @@ export const InputSection: React.FC<InputSectionProps> = ({ params, setParams })
         {/* Rate */}
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-1">
-            Rendimento Totale (%)
+            Rendimento Annuo
           </label>
           <div className="relative">
             <input
